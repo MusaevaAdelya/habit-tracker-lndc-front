@@ -6,7 +6,7 @@ function AppLayout() {
   return (
     <>
       <Navbar />
-      <main className="container mx-auto">
+      <main className="container mx-auto ">
         <Outlet />
       </main>
       <Footer />
