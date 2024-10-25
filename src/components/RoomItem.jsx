@@ -5,7 +5,6 @@ import RoomDetails from "./RoomDetails";
 function RoomItem({
   name,
   peopleQty,
-  peopleMax,
   isPrivate = true,
   image,
   description,
@@ -20,23 +19,22 @@ function RoomItem({
         setOpen={setModalOpen}
         name={name}
         peopleQty={peopleQty}
-        peopleMax={peopleMax}
         isPrivate={isPrivate}
         description={description}
         dailyTasks={dailyTasks}
       />
       <div
-        className="room-item-shadow rounded-xl p-6 flex cursor-pointer"
+        className="flex p-6 cursor-pointer room-item-shadow rounded-xl"
         onClick={() => setModalOpen(true)}
       >
         <div className="flex flex-col flex-grow">
-          <h2 className="text-primary font-semibold lg:text-3xl md:text-xl text-lg mb-3">
+          <h2 className="mb-3 text-lg font-semibold text-primary lg:text-3xl md:text-xl">
             {name}
           </h2>
-          <RoomDetails isPrivate={isPrivate} peopleQty={peopleQty} peopleMax={peopleMax}/>
+          <RoomDetails isPrivate={isPrivate} peopleQty={peopleQty} />
 
           <div className="flex mt-auto">
-            <p className="underline lg:text-xl md:text-lg text-md hover:text-secondary inline-block">
+            <p className="inline-block underline lg:text-xl md:text-lg text-md hover:text-secondary">
               Read info
             </p>
           </div>

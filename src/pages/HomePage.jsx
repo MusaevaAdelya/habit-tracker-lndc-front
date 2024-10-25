@@ -14,7 +14,6 @@ function HomePage() {
           image="/images/room-image-1.svg"
           name="Sports training"
           peopleQty={12}
-          peopleMax={20}
           isPrivate={true}
           description="Join us for daily workouts that focus on building strength, endurance, and flexibility. This room is perfect for all fitness levels. Track your progress, share results, and stay motivated with a supportive community!"
           dailyTasks={[
@@ -27,7 +26,6 @@ function HomePage() {
           image="/images/room-image-2.svg"
           name="Healthy Meals"
           peopleQty={5}
-          peopleMax={10}
           isPrivate={false}
           description="Join us for daily workouts that focus on building strength, endurance, and flexibility. This room is perfect for all fitness levels. Track your progress, share results, and stay motivated with a supportive community!"
           dailyTasks={[
@@ -40,7 +38,6 @@ function HomePage() {
           image="/images/room-image-3.svg"
           name="Study Circle"
           peopleQty={4}
-          peopleMax={15}
           isPrivate={true}
           description="Join us for daily workouts that focus on building strength, endurance, and flexibility. This room is perfect for all fitness levels. Track your progress, share results, and stay motivated with a supportive community!"
           dailyTasks={[

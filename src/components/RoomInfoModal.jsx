@@ -15,7 +15,6 @@ function RoomInfoModal({
   setOpen,
   name,
   peopleQty,
-  peopleMax,
   isPrivate,
   description,
   dailyTasks,
@@ -59,7 +58,6 @@ function RoomInfoModal({
                 <RoomDetails
                   isPrivate={isPrivate}
                   peopleQty={peopleQty}
-                  peopleMax={peopleMax}
                 />
                 <div className="flex justify-center pt-4">
                   <Button
