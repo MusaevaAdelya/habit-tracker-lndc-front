@@ -8,7 +8,7 @@ function RoomItem({
   isPrivate = true,
   image,
   description,
-  dailyTasks,
+  goal
 }) {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -21,7 +21,7 @@ function RoomItem({
         peopleQty={peopleQty}
         isPrivate={isPrivate}
         description={description}
-        dailyTasks={dailyTasks}
+        goal={goal}
       />
       <div
         className="flex p-6 cursor-pointer room-item-shadow rounded-xl"

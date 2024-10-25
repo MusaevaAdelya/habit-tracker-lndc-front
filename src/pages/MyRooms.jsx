@@ -16,11 +16,7 @@ function MyRooms() {
           peopleQty={12}
           isPrivate={true}
           description="Join us for daily workouts that focus on building strength, endurance, and flexibility. This room is perfect for all fitness levels. Track your progress, share results, and stay motivated with a supportive community!"
-          dailyTasks={[
-            "Warm-up exercises",
-            "Cardio session",
-            "Stretching routine",
-          ]}
+          goal="Warm-up exercises"
         />
         <RoomItem
           image="/images/room-image-2.svg"
@@ -28,11 +24,7 @@ function MyRooms() {
           peopleQty={5}
           isPrivate={false}
           description="Join us for daily workouts that focus on building strength, endurance, and flexibility. This room is perfect for all fitness levels. Track your progress, share results, and stay motivated with a supportive community!"
-          dailyTasks={[
-            "Warm-up exercises",
-            "Cardio session",
-            "Stretching routine",
-          ]}
+          goal="Warm-up exercises"
         />
         <RoomItem
           image="/images/room-image-3.svg"
@@ -40,11 +32,7 @@ function MyRooms() {
           peopleQty={4}
           isPrivate={true}
           description="Join us for daily workouts that focus on building strength, endurance, and flexibility. This room is perfect for all fitness levels. Track your progress, share results, and stay motivated with a supportive community!"
-          dailyTasks={[
-            "Warm-up exercises",
-            "Cardio session",
-            "Stretching routine",
-          ]}
+          goal="Warm-up exercises"
         />
       </div>
       <Pagination />

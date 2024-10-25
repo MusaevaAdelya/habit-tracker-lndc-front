@@ -7,7 +7,7 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import { CheckBadgeIcon } from "@heroicons/react/16/solid";
+import { CheckBadgeIcon, SparklesIcon } from "@heroicons/react/16/solid";
 import RoomDetails from "./RoomDetails";
 
 function RoomInfoModal({
@@ -17,7 +17,7 @@ function RoomInfoModal({
   peopleQty,
   isPrivate,
   description,
-  dailyTasks,
+  goal,
 }) {
   const [isJoined, setIsJoined] = useState(true);
   return (
@@ -46,31 +46,56 @@ function RoomInfoModal({
                 </p>
               </div>
               <div>
-                <h4 className="mt-5 mb-3 text-lg text-center">Daily tasks</h4>
-                <ul className="space-y-2 mb-9">
-                  {dailyTasks.map((task, index) => (
-                    <li key={index} className="flex items-center">
-                      <CheckBadgeIcon className="w-6 h-6 mr-1 text-primary" />
-                      {task}
-                    </li>
-                  ))}
-                </ul>
-                <RoomDetails
-                  isPrivate={isPrivate}
-                  peopleQty={peopleQty}
-                />
-                <div className="flex justify-center pt-4">
-                  <Button
-                    className={`font-bold rounded-xl py-3 px-6 md:text-lg text-base info-modal-shadow ${
-                      isJoined
-                        ? "bg-light-100 text-primary"
-                        : "bg-primary text-white"
-                    }`}
-                    onClick={() => setIsJoined(!isJoined)}
-                  >
-                    {isJoined ? "Leave Room" : "Join Room"}
-                  </Button>
+                <h4 className="mt-5 mb-3 text-lg text-center">Goal</h4>
+                <div className="flex items-center mb-9 ">
+                  <SparklesIcon
+                    className="w-6 h-6 mr-1 text-primary"
+                    fill="#9B5DE5"
+                  />
+                  {goal}
                 </div>
+                <div>
+                  {/* Correctly closing this div */}
+                  <RoomDetails isPrivate={isPrivate} peopleQty={peopleQty} />
+                  <form action="#" method="POST" className="pt-4 space-y-6 ">
+                    {isPrivate ? (
+                      <div>
+                        <label
+                          htmlFor="create-password"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Enter password
+                        </label>
+                        <div className="mt-2">
+                          <input
+                            id="create-password"
+                            name="create-password"
+                            type="password"
+                            required
+                            autoComplete="current-password"
+                            className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+
+                    <div className="flex items-center justify-center">
+                      <Button
+                        className={`font-bold rounded-xl py-3 px-6 md:text-lg text-base info-modal-shadow ${
+                          isJoined
+                            ? "bg-light-100 text-primary"
+                            : "bg-primary text-white"
+                        }`}
+                        onClick={() => setIsJoined(!isJoined)}
+                      >
+                        {isJoined ? "Leave Room" : "Join Room"}
+                      </Button>
+                    </div>
+                  </form>
+                </div>{" "}
+                {/* This div is now correctly closed */}
               </div>
             </div>
           </DialogPanel>
