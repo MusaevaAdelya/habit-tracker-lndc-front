@@ -2,11 +2,11 @@ import RoomItem from "../components/RoomItem";
 import SearchPanel from "../components/SearchPanel";
 import Pagination from "../components/Pagination";
 
-function HomePage() {
+function MyRooms() {
   return (
     <main className="px-2 py-10 md:px-10">
       <h1 className="mb-6 text-2xl text-center fw-semibold lg:text-4xl md:text-3xl">
-        Community
+        My Rooms
       </h1>
       <SearchPanel />
       <div className="space-y-8 py-9">
@@ -52,7 +52,7 @@ function HomePage() {
       </div>
       <Pagination />
     </main>
-  );
+  )
 }
 
-export default HomePage;
+export default MyRooms
