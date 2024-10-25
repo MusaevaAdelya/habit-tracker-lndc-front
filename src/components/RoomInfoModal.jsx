@@ -20,6 +20,7 @@ function RoomInfoModal({
   description,
   dailyTasks,
 }) {
+  const [isJoined, setIsJoined] = useState(true);
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-10">
       <DialogBackdrop
@@ -28,29 +29,29 @@ function RoomInfoModal({
       />
 
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div className="flex items-end justify-center min-h-full p-4 text-center sm:items-center sm:p-0">
           <DialogPanel
             transition
             className="relative transform overflow-hidden rounded-[38px] bg-white text-left info-modal-shadow transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
           >
             <div className="p-6">
               <div>
-                <h3 className="font-semibold text-primary text-xl md:text-2xl lg:text-3xl text-center leading-tight mb-4">
+                <h3 className="mb-4 text-xl font-semibold leading-tight text-center text-primary md:text-2xl lg:text-3xl">
                   {name}
                 </h3>
-                <p className="md:text-lg text-base">
-                  <span className="text-primary font-semibold  mr-2">
+                <p className="text-base md:text-lg">
+                  <span className="mr-2 font-semibold text-primary">
                     Description:
                   </span>
                   {description}
                 </p>
               </div>
               <div>
-                <h4 className="mt-5 mb-3 text-center text-lg">Daily tasks</h4>
+                <h4 className="mt-5 mb-3 text-lg text-center">Daily tasks</h4>
                 <ul className="space-y-2 mb-9">
                   {dailyTasks.map((task, index) => (
                     <li key={index} className="flex items-center">
-                      <CheckBadgeIcon className="h-6 w-6 text-primary mr-1" />
+                      <CheckBadgeIcon className="w-6 h-6 mr-1 text-primary" />
                       {task}
                     </li>
                   ))}
@@ -61,8 +62,15 @@ function RoomInfoModal({
                   peopleMax={peopleMax}
                 />
                 <div className="flex justify-center pt-4">
-                  <Button className="bg-primary font-bold text-white rounded-xl py-3 px-6 md:text-lg text-base">
-                    Join
+                  <Button
+                    className={`font-bold rounded-xl py-3 px-6 md:text-lg text-base info-modal-shadow ${
+                      isJoined
+                        ? "bg-light-100 text-primary"
+                        : "bg-primary text-white"
+                    }`}
+                    onClick={() => setIsJoined(!isJoined)}
+                  >
+                    {isJoined ? "Leave Room" : "Join Room"}
                   </Button>
                 </div>
               </div>
