@@ -42,7 +42,7 @@ function RoomItem({
         <img
           src={image}
           alt="room image"
-          className="md:min-h-[150px] min-h-[40px]"
+          className="h-[150px]"
         />
       </div>
     </>

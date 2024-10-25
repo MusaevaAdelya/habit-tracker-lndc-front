@@ -34,6 +34,14 @@ function HomePage() {
           description="Join us for daily workouts that focus on building strength, endurance, and flexibility. This room is perfect for all fitness levels. Track your progress, share results, and stay motivated with a supportive community!"
           goal="Warm-up exercises"
         />
+        <RoomItem
+          image="/images/room-image-4.jpg"
+          name="Study Circle"
+          peopleQty={4}
+          isPrivate={true}
+          description="Join us for daily workouts that focus on building strength, endurance, and flexibility. This room is perfect for all fitness levels. Track your progress, share results, and stay motivated with a supportive community!"
+          goal="Warm-up exercises"
+        />
       </div>
       <Pagination />
     </main>
