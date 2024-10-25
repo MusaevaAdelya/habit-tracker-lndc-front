@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function SignInPage() {
+function SignUpPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       {/* Background Image */}
@@ -44,24 +44,54 @@ function SignInPage() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Password
-                </label>
-                <div className="text-sm">
-                  <Link to="#" className="font-semibold text-primary">
-                    Forgot password?
-                  </Link>
-                </div>
-              </div>
+              <label
+                htmlFor="username"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Username
+              </label>
               <div className="mt-2">
                 <input
-                  id="password"
-                  name="password"
-                  type="password"
+                  id="username"
+                  name="username"
+                  type="username"
+                  required
+                  autoComplete="username"
+                  className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                htmlFor="create-password"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Create password
+              </label>
+              <div className="mt-2">
+                <input
+                  id="create-password"
+                  name="create-password"
+                  type="create-password"
+                  required
+                  autoComplete="current-password"
+                  className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="repeat-password"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Repeat password
+              </label>
+              <div className="mt-2">
+                <input
+                  id="repeat-password"
+                  name="repeat-password"
+                  type="repeat-password"
                   required
                   autoComplete="current-password"
                   className="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
@@ -74,13 +104,13 @@ function SignInPage() {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary mb-3"
               >
-                Sign in
+                Sign up
               </button>
               <Link
-                to="/sign-up"
+                to="/sign-in"
                 className="text-sm font-semibold leading-6 text-center"
               >
-                Sign up
+                Sign in
               </Link>
             </div>
           </form>
@@ -90,4 +120,4 @@ function SignInPage() {
   );
 }
 
-export default SignInPage;
+export default SignUpPage;
