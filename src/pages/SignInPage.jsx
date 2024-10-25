@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 
 function SignInPage() {
-  return <main className="min-h-screen py-10 bg-pink-200 x-2 md:px-10">
-    <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
+  return (
+    <main className="relative min-h-screen overflow-hidden">
+      {/* Background Image */}
+      <img
+        src="/images/background.svg"
+        alt="Background"
+        className="absolute inset-0 object-cover w-full h-full scale-150 -z-10"
+      />
+      
+      <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             alt="Your Company"
@@ -14,7 +22,7 @@ function SignInPage() {
           </h2>
         </div>
 
-        <div className="px-6 py-10 mt-10 bg-white shadow-xl sm:mx-auto sm:w-full sm:max-w-sm rounded-2xl">
+        <div className="px-6 py-12 mt-10 bg-white shadow-xl sm:mx-auto sm:w-full sm:max-w-sm rounded-2xl">
           <form action="#" method="POST" className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
@@ -58,17 +66,16 @@ function SignInPage() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                className="flex w-full justify-center rounded-md bg-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 Sign in
               </button>
             </div>
           </form>
-
-          
         </div>
       </div>
-  </main>;
+    </main>
+  );
 }
 
 export default SignInPage;
