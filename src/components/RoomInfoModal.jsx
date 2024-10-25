@@ -94,8 +94,7 @@ function RoomInfoModal({
                       </Button>
                     </div>
                   </form>
-                </div>{" "}
-                {/* This div is now correctly closed */}
+                </div>
               </div>
             </div>
           </DialogPanel>
