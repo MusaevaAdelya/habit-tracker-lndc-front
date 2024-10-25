@@ -4,7 +4,7 @@ import Pagination from "../components/Pagination";
 
 function HomePage() {
   return (
-    <main className=" lg:p-10">
+    <main className="px-2 md:px-10 py-10">
       <h1 className="text-center fw-semibold lg:text-4xl md:text-3xl text-2xl mb-6">
         Rooms
       </h1>

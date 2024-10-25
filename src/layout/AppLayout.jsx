@@ -5,11 +5,11 @@ import Footer from "../components/Footer";
 function AppLayout() {
   return (
     <>
-      {/* <Navbar /> */}
-      <main className="container mx-auto">
+      <Navbar />
+      <main className="container mx-auto ">
         <Outlet />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
