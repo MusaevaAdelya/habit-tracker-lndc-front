@@ -3,6 +3,7 @@ import AppLayout from "./layout/AppLayout";
 import HomePage from "./pages/HomePage";
 import MyRoomsPage from "./pages/MyRooms";
 import RoomPage from "./pages/RoomPage";
+import SignInPage from "./pages/SignInPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="my-rooms" element={<MyRoomsPage/>}/>
           <Route path="room/:id" element={<RoomPage />} />
         </Route>
+        <Route path="sign-in" element={<SignInPage/>}/>
       </Routes>
     </BrowserRouter>
   );
