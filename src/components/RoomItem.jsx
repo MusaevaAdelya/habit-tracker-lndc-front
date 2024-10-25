@@ -5,7 +5,7 @@ function RoomItem({ name, peopleQty, peopleMax, isPrivate = true, image }) {
   return (
     <div className="room-item-shadow rounded-xl p-6 flex">
       <div className="flex flex-col flex-grow">
-        <p className="text-primary font-semibold lg:text-3xl md:text-xl text-lg mb-2">
+        <p className="text-primary font-semibold lg:text-3xl md:text-xl text-lg mb-3">
           {name}
         </p>
         <div className="flex mb-5 lg:text-xl md:text-lg text-md">
