@@ -1,80 +1,62 @@
-import React, { useState } from 'react';
+import { ChevronLeftIcon } from "@heroicons/react/16/solid";
+import { useNavigate } from "react-router-dom";
+import CommentItem from "../components/CommentItem";
 
 function CommentsPage() {
-  const [messages, setMessages] = useState([
-    { type: 'incoming', text: "Hey Bob, how's it going?", avatar: 'https://placehold.co/200x/ffa8e4/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' },
-    { type: 'outgoing', text: "Hi Alice! I'm good, just finished a great book. How about you?", avatar: 'https://placehold.co/200x/b7a8ff/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' },
-    { type: 'incoming', text: 'That book sounds interesting! What\'s it about?', avatar: 'https://placehold.co/200x/ffa8e4/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' },
-    { type: 'outgoing', text: 'It\'s about an astronaut stranded on Mars, trying to survive. Gripping stuff!', avatar: 'https://placehold.co/200x/b7a8ff/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' },
-    { type: 'incoming', text: 'I\'m intrigued! Maybe I\'ll borrow it from you when you\'re done?', avatar: 'https://placehold.co/200x/ffa8e4/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' },
-    { type: 'outgoing', text: 'Of course! I\'ll drop it off at your place tomorrow.', avatar: 'https://placehold.co/200x/b7a8ff/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' },
-    { type: 'incoming', text: 'Thanks, you\'re the best!', avatar: 'https://placehold.co/200x/ffa8e4/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' },
-    { type: 'outgoing', text: 'Anytime! Let me know how you like it. 😊', avatar: 'https://placehold.co/200x/b7a8ff/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' },
-    { type: 'incoming', text: 'So, pizza next week, right?', avatar: 'https://placehold.co/200x/ffa8e4/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' },
-    { type: 'outgoing', text: 'Absolutely! Can\'t wait for our pizza date. 🍕', avatar: 'https://placehold.co/200x/b7a8ff/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' },
-    { type: 'incoming', text: 'Hoorayy!!', avatar: 'https://placehold.co/200x/ffa8e4/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' }
-  ]);
-  const [newMessage, setNewMessage] = useState('');
+  const navigate = useNavigate();
+  const comments = [
+    {
+      username: "Peter Parker",
+      userImage: "/images/user-image-1.png",
+      text: "Well, well, well, look who’s being all responsible! Nice job, kid. Just don’t forget, a strong body is important, but a sharp mind wins the game. Keep it up, and maybe someday you'll be half as cool as me.",
+    },
+    {
+      username: "Hulk",
+      userImage: "/images/user-image-2.jfif",
+      text: "SPORT GOOD. SMASH STRESS. KEEP STRONG, SPIDER-KID. 💪🏋️‍♂️ #HulkApprove #StayStrongLittleSpider",
+    },
+  ];
 
-  const handleSendMessage = () => {
-    if (newMessage.trim()) {
-      setMessages([
-        ...messages,
-        { type: 'outgoing', text: newMessage, avatar: 'https://placehold.co/200x/b7a8ff/ffffff.svg?text=ʕ•́ᴥ•̀ʔ&font=Lato' }
-      ]);
-      setNewMessage('');
-    }
-  };
+  const currentUser = { name: "Adelya", avatar: "/images/user-image-1.png" };
 
   return (
-    <div className="flex flex-col min-h-screen mb-11">
-      {/* Chat Header */}
-      <header className="p-4 text-gray-700 bg-white">
-        <h1 className="text-2xl font-semibold">Alice</h1>
-      </header>
+    <main className="relative min-h-screen px-2 py-10 md:px-10">
+      <div className="flex items-center mb-6">
+        <ChevronLeftIcon
+          className="h-10 cursor-pointer"
+          onClick={() => navigate(-1)}
+        />
+        <h1 className="flex-grow text-2xl font-semibold text-center md:text-3xl">
+          Comments
+        </h1>
+      </div>
 
-      {/* Chat Messages */}
-      <div className="flex-1 p-4">
-        {messages.map((message, index) => (
-          <div key={index} className={`flex mb-4 ${message.type === 'outgoing' ? 'justify-end' : ''}`}>
-            {message.type === 'incoming' && (
-              <div className="flex items-center justify-center mr-2 rounded-full w-9 h-9">
-                <img src={message.avatar} alt="User Avatar" className="w-8 h-8 rounded-full" />
-              </div>
-            )}
-            <div
-              className={`flex max-w-96 p-3 gap-3 rounded-lg ${message.type === 'incoming' ? 'bg-white text-gray-700' : 'bg-indigo-500 text-white'}`}
-            >
-              <p>{message.text}</p>
-            </div>
-            {message.type === 'outgoing' && (
-              <div className="flex items-center justify-center ml-2 rounded-full w-9 h-9">
-                <img src={message.avatar} alt="My Avatar" className="w-8 h-8 rounded-full" />
-              </div>
-            )}
-          </div>
+      <div className="mb-20 space-y-6 md:space-y-10">
+        {comments.map((comment, index) => (
+          <CommentItem key={index} comment={comment} />
         ))}
       </div>
 
-      {/* Chat Input */}
-      <footer className="p-4 bg-white border-t border-gray-300">
-        <div className="flex items-center">
-          <input
-            type="text"
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-            placeholder="Type a message..."
-            className="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:border-blue-500"
-          />
-          <button
-            onClick={handleSendMessage}
-            className="px-4 py-2 ml-2 text-white bg-indigo-500 rounded-md"
-          >
-            Send
-          </button>
+      {/* Form positioned at the bottom */}
+      <form className="absolute bottom-0 left-0 right-0 flex items-center w-full p-4 mx-auto mb-10 space-x-2 bg-white border-t border-gray-300 md:space-x-5 lg:max-w-4xl">
+        <img
+          src={currentUser.avatar}
+          alt="user photo"
+          className="object-cover rounded-full md:h-[100px] md:w-[100px] h-[50px] w-[50px] search-pannel-shadow"
+        />
+        <div className="flex-grow">
+          <div className="relative flex justify-between px-3 py-3 space-x-6 comment-shadow md:px-12 rounded-2xl">
+            <input
+              placeholder="Write a comment..."
+              className="flex-grow outline-none"
+            />
+            <button className="px-4 py-2 text-white bg-primary rounded-xl">
+              Post
+            </button>
+          </div>
         </div>
-      </footer>
-    </div>
+      </form>
+    </main>
   );
 }
 
