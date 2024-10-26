@@ -77,6 +77,7 @@ function MyRooms() {
                         name={room.name}
                         peopleQty={room.users?.count || 0}
                         isPrivate={room.close}
+                        isJoined={true}
                         description={room.description}
                         goal={room.room_setting?.isGlobal ? "Global Goal" : "Room Goal"} // Example goal based on room setting
                     />

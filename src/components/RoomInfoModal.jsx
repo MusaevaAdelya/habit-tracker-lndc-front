@@ -17,9 +17,14 @@ function RoomInfoModal({
   peopleQty,
   isPrivate,
   description,
-  goal,
+    isJoined,
+  goal
 }) {
-  const [isJoined, setIsJoined] = useState(true);
+
+  function handleClose(isJoined) {
+    console.log(isJoined);
+  }
+
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-10">
       <DialogBackdrop
@@ -88,7 +93,7 @@ function RoomInfoModal({
                             ? "bg-light-100 text-primary"
                             : "bg-primary text-white"
                         }`}
-                        onClick={() => setIsJoined(!isJoined)}
+                        onClick={() => handleClose(isJoined)}
                       >
                         {isJoined ? "Leave Room" : "Join Room"}
                       </Button>

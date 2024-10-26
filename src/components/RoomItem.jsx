@@ -8,7 +8,9 @@ function RoomItem({
   isPrivate = true,
   image,
   description,
+  isJoined,
   goal
+
 }) {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -22,6 +24,7 @@ function RoomItem({
         isPrivate={isPrivate}
         description={description}
         goal={goal}
+        isJoined={isJoined}
       />
       <div
         className="flex p-6 cursor-pointer room-item-shadow rounded-xl"

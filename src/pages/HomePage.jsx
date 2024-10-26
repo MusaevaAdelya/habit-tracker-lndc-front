@@ -76,6 +76,7 @@ function HomePage() {
                         key={room.id}
                         image={room.image || "/images/default-room-image.svg"} // Fallback if no image
                         name={room.name}
+                        isJoined={false}
                         peopleQty={room.users?.count || 0}
                         isPrivate={room.close}
                         description={room.description}
