@@ -7,6 +7,7 @@ import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import CommentsPage from "./pages/CommentsPage"
 import CreateNewRoomPage from "./pages/CreateNewRoomPage";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="room/:id" element={<RoomPage />} />
           <Route path="comments/:id" element={<CommentsPage/>}/>
           <Route path="create-room" element={<CreateNewRoomPage/>}/>
+          <Route path="edit-profile" element={<EditProfile/>}/>
         </Route>
         <Route path="sign-in" element={<SignInPage/>}/>
         <Route path="sign-up" element={<SignUpPage/>}/>
