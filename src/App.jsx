@@ -5,6 +5,7 @@ import MyRoomsPage from "./pages/MyRooms";
 import RoomPage from "./pages/RoomPage";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
+import CommentsPage from "./pages/CommentsPage"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="my-rooms" element={<MyRoomsPage/>}/>
           <Route path="room/:id" element={<RoomPage />} />
+          <Route path="comments/:id" element={<CommentsPage/>}/>
         </Route>
         <Route path="sign-in" element={<SignInPage/>}/>
         <Route path="sign-up" element={<SignUpPage/>}/>
