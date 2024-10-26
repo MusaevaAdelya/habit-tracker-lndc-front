@@ -2,12 +2,11 @@ import { ChevronLeftIcon } from "@heroicons/react/16/solid";
 import { useNavigate } from "react-router-dom";
 import { SparklesIcon } from "@heroicons/react/16/solid";
 import CalendarDays from "../components/CalendarDays";
-
 import PostItem from "../components/PostItem";
 import FloatingActionButton from "../components/FloatingActionButton";
 import CreatePostModal from "../components/CreatePostModal";
-import { useState } from "react";
 import StreakModal from "../components/StreakModal";
+import { useState } from "react";
 
 function RoomPage() {
   const navigate = useNavigate();
@@ -32,14 +31,46 @@ function RoomPage() {
     },
   ];
 
-  const [open, setOpen]=useState(false);
-  const [streakOpen, setStreakOpen]=useState(true)
+  const [openCreatePost, setOpenCreatePost] = useState(false);
+  const [openStreakModal, setOpenStreakModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
+
+  const handleSubButtonClick = () => {
+    document.getElementById("imageInput").click();
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setSelectedImage(imageUrl);
+      setOpenCreatePost(true);
+    }
+  };
+
+  const handleCreatePost = () => {
+    // Close the CreatePostModal and open the StreakModal
+    setOpenCreatePost(false);
+    setOpenStreakModal(true);
+  };
 
   return (
     <main className="min-h-screen px-2 py-10 md:px-10">
-      <FloatingActionButton />
-      <CreatePostModal open={open} setOpen={setOpen} postImage={"/images/post-image-2.png"}/>
-      <StreakModal open={streakOpen} setOpen={setStreakOpen}/>
+      <input
+        type="file"
+        accept="image/*"
+        id="imageInput"
+        className="hidden"
+        onChange={handleImageChange}
+      />
+      <FloatingActionButton onSubButtonClick={handleSubButtonClick} />
+      <CreatePostModal
+        open={openCreatePost}
+        setOpen={setOpenCreatePost}
+        postImage={selectedImage}
+        onCreate={handleCreatePost}
+      />
+      <StreakModal open={openStreakModal} setOpen={setOpenStreakModal} />
       <div className="flex items-center">
         <ChevronLeftIcon
           className="h-10 cursor-pointer"
@@ -62,8 +93,8 @@ function RoomPage() {
         </div>
       </div>
       <div className="space-y-6 md:space-y-10">
-        {posts.map((post) => (
-          <PostItem post={post} />
+        {posts.map((post, index) => (
+          <PostItem key={index} post={post} />
         ))}
       </div>
     </main>

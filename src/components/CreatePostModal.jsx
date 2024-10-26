@@ -1,45 +1,32 @@
-import { useState } from "react";
-import {
-  Button,
-  Dialog,
-  DialogBackdrop,
-  DialogPanel,
-  DialogTitle,
-} from "@headlessui/react";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import {
-  CheckBadgeIcon,
-  SparklesIcon,
-  XMarkIcon,
-} from "@heroicons/react/16/solid";
-import RoomDetails from "./RoomDetails";
+import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/16/solid";
 
-function CreatePostModal({ open, setOpen, postImage }) {
+function CreatePostModal({ open, setOpen, postImage, onCreate }) {
   return (
-    <Dialog open={open} onClose={setOpen} className="relative z-[100]">
+    <Dialog open={open} onClose={() => setOpen(false)} className="relative z-[100]">
       <DialogBackdrop
-        transition
-        className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+        className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75"
       />
 
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div className="flex items-end justify-center min-h-full p-4 text-center sm:items-center sm:p-0">
           <DialogPanel
-            transition
-            className="relative transform overflow-hidden rounded-[38px] bg-white text-left info-modal-shadow transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+            className="relative transform overflow-hidden rounded-[38px] bg-white text-left info-modal-shadow transition-all sm:my-8 sm:w-full sm:max-w-lg"
           >
-            <div className="p-8 ">
+            <div className="p-8">
               <div className="flex mb-8">
-                <XMarkIcon className="w-8" />
+                <XMarkIcon className="w-8 cursor-pointer" onClick={() => setOpen(false)} />
                 <span className="flex-grow text-xl font-bold text-center md:text-3xl text-primary">
                   Create post
                 </span>
               </div>
-              <img
-                src={postImage}
-                alt="post image"
-                className="shadow-lg rounded-xl"
-              />
+              {postImage && (
+                <img
+                  src={postImage}
+                  alt="post image"
+                  className="mb-4 shadow-lg rounded-xl"
+                />
+              )}
               <label
                 htmlFor="description"
                 className="block mt-8 text-lg font-semibold leading-6 text-primary"
@@ -56,11 +43,15 @@ function CreatePostModal({ open, setOpen, postImage }) {
               </div>
 
               <div className="flex items-center justify-center">
-                <Button
-                  className={`font-bold rounded-xl py-3 px-6 md:text-lg text-base info-modal-shadow bg-primary text-white`}
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                    onCreate();
+                  }}
+                  className="px-6 py-3 text-base font-bold text-white rounded-xl md:text-lg info-modal-shadow bg-primary"
                 >
                   Create
-                </Button>
+                </button>
               </div>
             </div>
           </DialogPanel>
