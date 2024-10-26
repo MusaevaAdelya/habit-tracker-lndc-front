@@ -73,6 +73,7 @@ function RoomPage() {
               <PostItem
                   key={post.id}
                   post={{
+                    id:post.id,
                     picture: post.user.image || "/images/default-user.png",
                     name: post.user.username,
                     postImage: post.media[0] || "/images/default-post.png",

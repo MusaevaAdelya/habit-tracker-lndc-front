@@ -3,6 +3,7 @@ import RoomInfoModal from "./RoomInfoModal";
 import RoomDetails from "./RoomDetails";
 
 function RoomItem({
+    id,
   name,
   peopleQty,
   isPrivate = true,
@@ -17,6 +18,7 @@ function RoomItem({
   return (
     <>
       <RoomInfoModal
+          id={id}
         open={modalOpen}
         setOpen={setModalOpen}
         name={name}

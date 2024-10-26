@@ -73,6 +73,7 @@ function MyRooms() {
                 {filteredRooms.map((room) => (
                     <RoomItem
                         key={room.id}
+                           id={room.id}
                         image={room.image || "/images/default-room-image.svg"} // Fallback if no image
                         name={room.name}
                         peopleQty={room.users?.count || 0}
