@@ -5,6 +5,9 @@ import CalendarDays from "../components/CalendarDays";
 
 import PostItem from "../components/PostItem";
 import FloatingActionButton from "../components/FloatingActionButton";
+import CreatePostModal from "../components/CreatePostModal";
+import { useState } from "react";
+import StreakModal from "../components/StreakModal";
 
 function RoomPage() {
   const navigate = useNavigate();
@@ -29,9 +32,14 @@ function RoomPage() {
     },
   ];
 
+  const [open, setOpen]=useState(false);
+  const [streakOpen, setStreakOpen]=useState(true)
+
   return (
     <main className="min-h-screen px-2 py-10 md:px-10">
       <FloatingActionButton />
+      <CreatePostModal open={open} setOpen={setOpen} postImage={"/images/post-image-2.png"}/>
+      <StreakModal open={streakOpen} setOpen={setStreakOpen}/>
       <div className="flex items-center">
         <ChevronLeftIcon
           className="h-10 cursor-pointer"
